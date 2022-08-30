@@ -1,25 +1,17 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import { FONTS } from "./src/globalTheme/fonts";
+import { Provider } from "react-redux";
+import { store, persistor } from "./src/store/store";
+import { PersistGate } from "redux-persist/integration/react";
+import { RootNavigationContainer } from "./src/navigation/RootNavigationContainer";
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.container}>
-        <Text style={styles.label}>Hi</Text>
-      </View>
-    </SafeAreaView>
+    <Provider store={store}>
+      <PersistGate persistor={persistor} loading={null}>
+        <RootNavigationContainer />
+      </PersistGate>
+    </Provider>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  label: {
-    fontFamily: FONTS.regular,
-    fontSize: 48
-  },
-})
 
 export default App;
