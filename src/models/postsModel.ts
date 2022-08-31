@@ -1,9 +1,11 @@
+import { ImageSourcePropType } from "react-native";
+
 export interface IPostsModel {
   title: string;
   description: string;
-  createAt: Date | string;
+  createAt: string;
   status: string;
-  image: Blob | null;
+  image: ImageSourcePropType;
 }
 
 export type PostsModelList = IPostsModel[];

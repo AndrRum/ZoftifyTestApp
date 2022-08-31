@@ -4,6 +4,6 @@ export interface IPostsState {
   posts: PostsModelList;
 }
 
-export const PostsInitialState = {
-  posts: null,
+export const PostsInitialState: IPostsState = {
+  posts: [],
 };

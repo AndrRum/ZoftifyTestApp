@@ -6,11 +6,8 @@ const postsSlice = createSlice({
   initialState: PostsInitialState,
   reducers: {
     createPost(state, action) {
-
+      state.posts.push(action.payload);
     },
-    changePost(state, action) {
-
-    }
   },
 });
 
@@ -18,4 +15,4 @@ export const {
   createPost,
 } = postsSlice.actions;
 
-export const {reducer: postsReducer} = postsSlice;
+export const { reducer: postsReducer } = postsSlice;
