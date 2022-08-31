@@ -10,5 +10,6 @@ export const commonLocalization = {
   close: "Close",
   cancel: "Cancel",
   choose: "Choose from library",
-  takePhoto: "Take Photo"
+  takePhoto: "Take Photo",
+  emptyHome: "The list of posts is currently empty. Create a post"
 };
