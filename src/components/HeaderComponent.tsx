@@ -3,6 +3,7 @@ import { Image, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle }
 import { ImageResources } from "../globalTheme/ImageResources.g";
 import { COLORS } from "../globalTheme/colors";
 import { FONTS } from "../globalTheme/fonts";
+import { isIphoneX, STATUSBAR_HEIGHT } from "../globalTheme/constants";
 
 interface IProps {
   isLogoHeader?: boolean;
@@ -28,7 +29,8 @@ export const HeaderComponent = (props: IProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 14,
+    paddingTop: isIphoneX ? STATUSBAR_HEIGHT + 32 : 14,
+    paddingBottom: 14,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: COLORS.white
