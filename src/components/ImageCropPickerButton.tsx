@@ -4,6 +4,7 @@ import { ImageStyle, ImageURISource, ViewStyle } from "react-native";
 import { ImageResources } from "../globalTheme/ImageResources.g";
 import { PhotoTakingButton } from "./PhotoTakingButton";
 import { showActionSheet } from "../helpers/showActionSheet";
+import { localization } from "../localization/rootLocalization";
 
 interface IProps {
   onImagePicked: (image: CropperImage) => void;
@@ -52,7 +53,7 @@ export const ImageCropPickerButton: FC<IProps> = memo(
     }, [onImagePicked, onPickerError]);
 
     const onPress = useCallback(() => {
-      const options = ["Cancel", "Choose from library", "Take Photo"];
+      const options = [localization.common.cancel, localization.common.choose, localization.common.takePhoto];
 
       showActionSheet(
         {

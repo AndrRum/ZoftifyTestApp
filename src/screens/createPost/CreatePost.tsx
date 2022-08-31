@@ -15,6 +15,7 @@ import { FONTS } from "../../globalTheme/fonts";
 import { useDispatch } from "react-redux";
 import { createPost } from "../../redux/posts/postsSlice";
 import { dateFormatter } from "../../helpers/dateFormatter";
+import { localization } from "../../localization/rootLocalization";
 
 export const CreatePost = () => {
   const navigation = useNavigation();
@@ -67,14 +68,14 @@ export const CreatePost = () => {
       <View style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.headerContainer}>
-            <HeaderComponent title={"Create new post"} onBackPress={onBackHandler} />
+            <HeaderComponent title={localization.common.createPost} onBackPress={onBackHandler} />
           </View>
           <View style={styles.inputs}>
             <CustomInput
               inputContainerStyle={styles.inputContainerStyle}
               value={titleInputValue}
               onChangeText={text => setTitleInputValue(text)}
-              placeholder={"Title"}
+              placeholder={localization.common.title}
               onSubmitEditing={() => next(descriptionRef)}
             />
             <View style={styles.inputContainerStyle}>
@@ -91,7 +92,7 @@ export const CreatePost = () => {
                 ref={descriptionRef}
                 value={description}
                 onChangeText={text => setDescription(text)}
-                placeholder={"Description"}
+                placeholder={localization.common.description}
                 minHeight={118}
                 maxHeight={250}
               />
@@ -99,7 +100,7 @@ export const CreatePost = () => {
           </View>
           <View style={styles.empty} />
           <View style={styles.photoContainer}>
-            <Text style={styles.photoTitle}>Photo</Text>
+            <Text style={styles.photoTitle}>{localization.common.photo}</Text>
             <ImageCropPickerButton
               onImagePicked={addPhoto}
               onPressClose={() => setPhoto(null)}
@@ -112,9 +113,9 @@ export const CreatePost = () => {
         </ScrollView>
         <View style={styles.buttonContainer}>
           <CustomButton
-            title={"Submit"}
+            title={localization.common.submit}
             onPress={onSubmitHandler}
-            disabled={!titleInputValue || !description || !selectedItemStatus}
+            disabled={!titleInputValue || !description || !selectedItemStatus || !photo}
           />
         </View>
       </View>

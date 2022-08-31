@@ -5,6 +5,7 @@ import { COLORS } from "../../../globalTheme/colors";
 import { CustomButton } from "../../../components/CustomButton";
 import { FONTS } from "../../../globalTheme/fonts";
 import { ImageResources } from "../../../globalTheme/ImageResources.g";
+import { localization } from "../../../localization/rootLocalization";
 
 interface IProps {
   onTouchItem: (index: number) => void;
@@ -32,7 +33,7 @@ export const StatusModalView = (props: IProps) => {
           ))}
         </View>
         <View style={styles.buttonContainer}>
-          <CustomButton title={"Close"} onPress={props.closeModal} />
+          <CustomButton title={localization.common.close} onPress={props.closeModal} />
         </View>
       </View>
     </View>

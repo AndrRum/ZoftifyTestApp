@@ -4,6 +4,7 @@ import { ImageResources } from "../../../globalTheme/ImageResources.g";
 import { FONTS } from "../../../globalTheme/fonts";
 import { COLORS } from "../../../globalTheme/colors";
 import { StatusModalView } from "./StatusModalView";
+import { localization } from "../../../localization/rootLocalization";
 
 interface IProps {
   modalVisible: boolean;
@@ -18,7 +19,7 @@ export const StatusModal = (props: IProps) => {
     <View>
       <TouchableOpacity style={styles.container} onPress={props.changeModalState}>
         <Text style={props.selectedItem ? selectedItemTitle : styles.title}>
-          {props.selectedItem ? props.selectedItem : "Status"}
+          {props.selectedItem ? props.selectedItem : localization.common.status}
         </Text>
         <Image source={ImageResources.arrow_down} />
       </TouchableOpacity>
